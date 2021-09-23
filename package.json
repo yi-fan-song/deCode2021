@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/yi-fan-song/deCode2021#readme",
   "dependencies": {
-    "create-react-app": "^4.0.3"
+    "create-react-app": "^4.0.3",
+    "firebase": "^9.0.2",
+    "firebase-tools": "^9.18.0"
   }
 }
