@@ -1,0 +1,19 @@
+{
+  "name": "decode2021",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yi-fan-song/deCode2021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yi-fan-song/deCode2021/issues"
+  },
+  "homepage": "https://github.com/yi-fan-song/deCode2021#readme"
+}
