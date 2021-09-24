@@ -84,17 +84,19 @@ export const signInWithGoogle = async (name: string) => {
   try {
     const res = await signInWithPopup(auth, provider);
     const credential = GoogleAuthProvider.credentialFromResult(res);
-    const token = credential?.accessToken ? credential.accessToken : null ;
+    const token = credential?.accessToken;
     const user = res.user;
 
     await addDoc(collection(db, "users"), {
         phoneNumber: user.phoneNumber,
         authProvider: "Google",
         email: user.email,
-        latestToken: token,
+        latestToken: token ?? "",
         name,
     });
-    return user;
+    
+    const result = [user, token] as const;
+    return result;
   } catch (error) {
     return null;
   }
