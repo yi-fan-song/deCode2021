@@ -92,8 +92,11 @@ export const signInWithGoogle = async (name: string) => {
     });
 
     const result = [user, token] as const;
+    console.log(result);
     return result;
   } catch (error) {
+    alert("Sign in failed");
+    console.error(error);
     return null;
   }
 };

@@ -10,7 +10,13 @@ const Home = () => {
   return (
     <Box sx={{ flexGrow: 1, px: 30 }}>
       {/* <img src="./cover_image.png" alt="cover" /> */}
-      <Box sx={{backgroundImage: 'url("./cover_image.png")', height: 750, backgroundRepeat: "no-repeat"}}>
+      <Box
+        sx={{
+          backgroundImage: 'url("./cover_image.png")',
+          height: 750,
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         <Typography variant="h3" sx={{ maxWidth: 500 }}>
           Go GREEN one challenge at a time
         </Typography>

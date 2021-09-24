@@ -19,7 +19,7 @@ import Leaderboard from "./components/leaderboard";
 import Profile from "./components/profile";
 
 // eslint-disable-next-line
-import firebaseTools from "./firebaseTools";
+import { signInWithGoogle } from "./firebaseTools";
 // eslint-disable-next-line
 import { app, analytics } from "./firebase";
 
@@ -93,7 +93,8 @@ const App = () => {
                 color="inherit"
                 aria-label="menu"
                 sx={{ mr: 2 }}
-                href="/profile"
+                // href="/profile"
+                onClick={(props) => signInWithGoogle("")}
               >
                 <PermIdentityIcon />
               </IconButton>
