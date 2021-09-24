@@ -8,7 +8,7 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import { getFirestore, addDoc, limit, collection, doucment, 
+import { getFirestore, addDoc, limit, collection, 
   query,
   where, 
   getDocs } from "firebase/firestore";
