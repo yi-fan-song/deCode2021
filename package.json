@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/yi-fan-song/deCode2021/issues"
   },
-  "homepage": "https://github.com/yi-fan-song/deCode2021#readme"
+  "homepage": "https://github.com/yi-fan-song/deCode2021#readme",
+  "dependencies": {
+    "mocker-data-generator": "^2.12.0"
+  }
 }
