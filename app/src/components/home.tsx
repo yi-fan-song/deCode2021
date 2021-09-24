@@ -1,4 +1,27 @@
-import React from 'react';
+import React from "react";
 
-const Home = () => <h1>Home</h1>;
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+
+const Home = () => {
+  // const theme =
+  return (
+    <Box sx={{ flexGrow: 1, textAlign: "center" }}>
+      <img src="cover.jpg" alt="the cover"></img>
+      <Box sx={{ flexGrow: 1 }}>
+        <Stack
+          spacing={2}
+          direction="row"
+          sx={{ width: "fit-content", margin: "auto", marginTop: 2 }}
+        >
+          <Button variant="contained">Learn More</Button>
+          <Button color="secondary" variant="contained">
+            Register Your Meter
+          </Button>
+        </Stack>
+      </Box>
+    </Box>
+  );
+};
 export default Home;
