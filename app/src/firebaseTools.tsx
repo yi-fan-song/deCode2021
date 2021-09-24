@@ -8,7 +8,7 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import { getFirestore, addDoc, limit, collection, 
+import { getFirestore, addDoc, limit, collection, doc, 
   query,
   where, 
   getDocs } from "firebase/firestore";
@@ -65,16 +65,13 @@ export const registerEmailAndPassword = async (
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
+    const q = query(collection(db, "users"), where("email", "==", email));
+    const snap = await getDocs(q);
 
-    const query = await db
-      .collection("users")
-      .where("uid", "==", user.uid)
-      .get();
-
-    if (query.docs.length > 0) { 
-        return Error("Please sign in instead")
+    if (snap.docs.length > 0) {
+      return Error("Please sign in instead")
     }
-
+  
     await addDoc(collection(db, "users"), {
       name,
       authProvider: "local",
@@ -94,16 +91,14 @@ export const signInWithGoogle = async () => {
     const credential = GoogleAuthProvider.credentialFromResult(res);
     const token = credential?.accessToken;
     const user = res.user;
+    
+    const q = query(collection(db, "users"), where("email", "==", email));
+    const snap = await getDocs(q);
 
-
-    const query = await db
-      .collection("users")
-      .where("uid", "==", user.uid)
-      .get();
-
-    if (query.docs.length > 0) { 
-        return Error("Please sign in instead")
+    if (snap.docs.length > 0) {
+      return Error("Please sign in instead")
     }
+  
 
     await addDoc(collection(db, "users").document, {
       phoneNumber: user.phoneNumber,
