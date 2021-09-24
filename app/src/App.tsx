@@ -1,14 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import HomeIcon from "@mui/icons-material/Home";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import HomeIcon from '@mui/icons-material/Home';
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
-import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import HomeIcon from "@mui/icons-material/Home";
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
@@ -18,7 +17,11 @@ import Dashboard from "./components/dashboard";
 import Home from "./components/home";
 import Leaderboard from "./components/leaderboard";
 import Profile from "./components/profile";
+
+// eslint-disable-next-line
 import firebaseTools from "./firebaseTools";
+// eslint-disable-next-line
+import { app, analytics } from "./firebase";
 
 const theme = createTheme({
   palette: {
@@ -42,7 +45,10 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Router>
         <Box sx={{ flexGrow: 1 }} color="secondary">
-          <AppBar position="static" sx={{bgcolor: "white", boxShadow: "none", color:"primary.main"}}>
+          <AppBar
+            position="static"
+            sx={{ bgcolor: "white", boxShadow: "none", color: "primary.main" }}
+          >
             <Toolbar>
               <IconButton
                 size="large"
@@ -61,7 +67,7 @@ const App = () => {
                   <Route path="/profile">Profile</Route>
                   <Route path="/">Home</Route>
                 </Switch>
-                <Button color="inherit" href="/dashboard" sx={{pl: 4}}>
+                <Button color="inherit" href="/dashboard" sx={{ pl: 4 }}>
                   Dashboard
                 </Button>
                 <Button color="inherit" href="/leaderboard">

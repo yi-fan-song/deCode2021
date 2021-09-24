@@ -8,11 +8,7 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import {
-  getFirestore,
-  collection,
-  addDoc,
-} from "firebase/firestore";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -88,13 +84,13 @@ export const signInWithGoogle = async (name: string) => {
     const user = res.user;
 
     await addDoc(collection(db, "users"), {
-        phoneNumber: user.phoneNumber,
-        authProvider: "Google",
-        email: user.email,
-        latestToken: token ?? "",
-        name,
+      phoneNumber: user.phoneNumber,
+      authProvider: "Google",
+      email: user.email,
+      latestToken: token ?? "",
+      name,
     });
-    
+
     const result = [user, token] as const;
     return result;
   } catch (error) {
@@ -115,11 +111,9 @@ export const stateChanged = () => {
 
 export const logout = async () => {
   try {
-    await  signOut(auth);
+    await signOut(auth);
     return null;
-  } catch (e){
+  } catch (e) {
     return e;
-  } 
-}
-
- 
+  }
+};
