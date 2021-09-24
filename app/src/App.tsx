@@ -10,7 +10,9 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import HomeIcon from "@mui/icons-material/Home";
+import HomeIcon from '@mui/icons-material/Home';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 
 import Home from "./components/home";
 import Dashboard from "./components/dashboard";
@@ -61,16 +63,36 @@ const App = () => {
                   <Route path="/profile">Profile</Route>
                   <Route path="/">Home</Route>
                 </Switch>
+                <Button color="inherit" href="/dashboard" sx={{pl: 4}}>
+                  Dashboard
+                </Button>
+                <Button color="inherit" href="/leaderboard">
+                  Leaderboard
+                </Button>
+                <Button color="inherit" href="/challenges">
+                  Challenges
+                </Button>
               </Typography>
-              <Button color="inherit" href="/dashboard">
-                Dashboard
-              </Button>
-              <Button color="inherit" href="/leaderboard">
-                Leaderboard
-              </Button>
-              <Button color="inherit" href="/Profile">
-                Profile
-              </Button>
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                sx={{ mr: 2 }}
+                href="/leaderboard"
+              >
+                <NotificationsNoneIcon />
+              </IconButton>
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                sx={{ mr: 2 }}
+                href="/profile"
+              >
+                <PermIdentityIcon />
+              </IconButton>
             </Toolbar>
           </AppBar>
         </Box>
