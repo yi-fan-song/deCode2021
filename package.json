@@ -16,7 +16,6 @@
     "url": "https://github.com/yi-fan-song/deCode2021/issues"
   },
   "homepage": "https://github.com/yi-fan-song/deCode2021#readme",
-  "dependencies": {
-    "create-react-app": "^4.0.3"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }

@@ -1,0 +1,6 @@
+FROM node:16.10.0
+
+ENTRYPOINT [ "/bin/bash" ]
+
+EXPOSE 3000
+EXPOSE 3001
