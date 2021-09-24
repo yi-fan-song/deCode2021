@@ -1,26 +1,24 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import { createTheme } from "@mui/material/styles";
-import { ThemeProvider } from "@mui/material/styles";
-
+import HomeIcon from "@mui/icons-material/Home";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import HomeIcon from '@mui/icons-material/Home';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 
-import Home from "./components/home";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+
 import Dashboard from "./components/dashboard";
+import Home from "./components/home";
 import Leaderboard from "./components/leaderboard";
 import Profile from "./components/profile";
-
-// eslint-disable-next-line
-import { app, analytics } from "./firebase";
+import firebaseTools from "./firebaseTools";
 
 const theme = createTheme({
   palette: {
