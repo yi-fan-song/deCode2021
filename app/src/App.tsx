@@ -26,16 +26,13 @@ const theme = createTheme({
       light: "#d1e1fa",
       main: "#2971de",
       dark: "#2971de",
-      // light: "#466d1d",
-      // main: "#466d1d",
-      // dark: "#466d1d",
       contrastText: "#363636",
     },
     secondary: {
       light: "#d1e1fa",
       main: "#d1e1fa",
       dark: "#d1e1fa",
-      contrastText: "#fff",
+      contrastText: "#363636",
     },
   },
 });
@@ -44,8 +41,8 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="static">
+        <Box sx={{ flexGrow: 1 }} color="secondary">
+          <AppBar position="static" sx={{bgcolor: "white", boxShadow: "none", color:"primary.main"}}>
             <Toolbar>
               <IconButton
                 size="large"
