@@ -71,8 +71,7 @@ export const registerEmailAndPassword = async (
       .where("uid", "==", user.uid)
       .get();
 
-
-    if (q.length > 0) { 
+    if (query.docs.length > 0) { 
         return Error("Please sign in instead")
     }
 
@@ -102,7 +101,7 @@ export const signInWithGoogle = async () => {
       .where("uid", "==", user.uid)
       .get();
 
-    if (q.length > 0) { 
+    if (query.docs.length > 0) { 
         return Error("Please sign in instead")
     }
 
