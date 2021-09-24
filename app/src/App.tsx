@@ -11,8 +11,8 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-// import IconButton from "@mui/material/IconButton";
-// import MenuIcon from "@mui/icons-material/Menu";
+import IconButton from "@mui/material/IconButton";
+import HomeIcon from "@mui/icons-material/Home";
 
 import Home from "./components/home";
 import Dashboard from "./components/dashboard";
@@ -25,19 +25,19 @@ import { app, analytics } from "./firebase";
 const App = () => {
   return (
     <Router>
-      <div>
         <Box sx={{ flexGrow: 1 }}>
           <AppBar position="static">
             <Toolbar>
-              {/* <IconButton
+              <IconButton
                 size="large"
                 edge="start"
                 color="inherit"
                 aria-label="menu"
                 sx={{ mr: 2 }}
+                href="/"
               >
-                <MenuIcon />
-              </IconButton> */}
+                <HomeIcon />
+              </IconButton>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 <Switch>
                   <Route path="/dashboard">Dashboard</Route>
@@ -49,7 +49,7 @@ const App = () => {
               <Button color="inherit" href="/dashboard">
                 Dashboard
               </Button>
-              <Button color="inherit" href="/Leaderboard">
+              <Button color="inherit" href="/leaderboard">
                 Leaderboard
               </Button>
               <Button color="inherit" href="/Profile">
@@ -58,22 +58,22 @@ const App = () => {
             </Toolbar>
           </AppBar>
         </Box>
-
-        <Switch>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-          <Route path="/leaderboard">
-            <Leaderboard />
-          </Route>
-          <Route path="/profile">
-            <Profile />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
+        <Box sx={{ m: 4 }}>
+          <Switch>
+            <Route path="/dashboard">
+              <Dashboard />
+            </Route>
+            <Route path="/leaderboard">
+              <Leaderboard />
+            </Route>
+            <Route path="/profile">
+              <Profile />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Box>
     </Router>
   );
 };
