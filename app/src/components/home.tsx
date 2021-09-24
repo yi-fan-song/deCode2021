@@ -7,7 +7,6 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
 const Home = () => {
-  // const theme =
   return (
     <Box sx={{ flexGrow: 1, px: 30}}>
       <Typography variant="h3" sx={{maxWidth: 500}}>
@@ -21,19 +20,6 @@ const Home = () => {
       <Button variant="contained" color="primary" sx={{color: "white"}}>
         Register my Usage
       </Button>
-      {/* <img src="cover.jpg" alt="the cover"></img>
-      <Box sx={{ flexGrow: 1 }}>
-        <Stack
-          spacing={2}
-          direction="row"
-          sx={{ width: "fit-content", margin: "auto", marginTop: 2 }}
-        >
-          <Button variant="contained">Learn More</Button>
-          <Button color="secondary" variant="contained">
-            Register Your Meter
-          </Button>
-        </Stack>
-      </Box> */}
     </Box>
   );
 };
