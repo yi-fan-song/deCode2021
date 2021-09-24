@@ -9,7 +9,6 @@ const Leaderboard = () => {
         <h1>Leaderboard</h1>
         <img src="./LeaderboardPlaceHolder.png"></img>
     )
-
 }
 
 
