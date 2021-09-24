@@ -23,15 +23,18 @@ import { app, analytics } from "./firebase";
 const theme = createTheme({
   palette: {
     primary: {
-      light: "#466d1d",
-      main: "#466d1d",
-      dark: "#466d1d",
-      contrastText: "#fff",
+      light: "#d1e1fa",
+      main: "#2971de",
+      dark: "#2971de",
+      // light: "#466d1d",
+      // main: "#466d1d",
+      // dark: "#466d1d",
+      contrastText: "#363636",
     },
     secondary: {
-      light: "#aaa",
-      main: "#888",
-      dark: "#666",
+      light: "#d1e1fa",
+      main: "#d1e1fa",
+      dark: "#d1e1fa",
       contrastText: "#fff",
     },
   },
@@ -74,7 +77,7 @@ const App = () => {
             </Toolbar>
           </AppBar>
         </Box>
-        <Box sx={{ m: 4 }}>
+        <Box sx={{ mt: 14 }}>
           <Switch>
             <Route path="/dashboard">
               <Dashboard />

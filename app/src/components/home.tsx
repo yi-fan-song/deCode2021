@@ -15,10 +15,10 @@ const Home = () => {
           direction="row"
           sx={{ width: "fit-content", margin: "auto", marginTop: 2 }}
         >
-          <Button variant="contained">
-            Learn More
+          <Button variant="contained">Learn More</Button>
+          <Button color="secondary" variant="contained">
+            Register Your Meter
           </Button>
-          <Button color="secondary" variant="contained">Register Your Meter</Button>
         </Stack>
       </Box>
     </Box>
