@@ -6,6 +6,9 @@ import {
   // Link
 } from "react-router-dom";
 
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/styles';
+
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -22,8 +25,26 @@ import Profile from "./components/profile";
 // eslint-disable-next-line
 import { app, analytics } from "./firebase";
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      light: '#757ce8',
+      main: '#3f50b5',
+      dark: '#002884',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#ff7961',
+      main: '#f44336',
+      dark: '#ba000d',
+      contrastText: '#000',
+    },
+  }
+});
+
 const App = () => {
   return (
+    <ThemeProvider theme={theme}>
     <Router>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
@@ -75,6 +96,7 @@ const App = () => {
         </Switch>
       </Box>
     </Router>
+    </ThemeProvider>
   );
 };
 
