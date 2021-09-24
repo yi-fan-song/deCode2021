@@ -92,7 +92,7 @@ export const signInWithGoogle = async () => {
     const token = credential?.accessToken;
     const user = res.user;
     
-    const q = query(collection(db, "users"), where("email", "==", email));
+    const q = query(collection(db, "users"), where("email", "==", user.email));
     const snap = await getDocs(q);
 
     if (snap.docs.length > 0) {
