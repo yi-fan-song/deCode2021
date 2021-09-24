@@ -8,7 +8,10 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore, addDoc, limit, collection, 
+  query,
+  where, 
+  getDocs } from "firebase/firestore";
 
 import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -63,6 +66,15 @@ export const registerEmailAndPassword = async (
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
 
+    const query = await db
+      .collection("users")
+      .where("uid", "==", user.uid)
+      .get();
+
+    if (query.docs.length > 0) { 
+        return Error("Please sign in instead")
+    }
+
     await addDoc(collection(db, "users"), {
       name,
       authProvider: "local",
@@ -76,19 +88,29 @@ export const registerEmailAndPassword = async (
   }
 };
 
-export const signInWithGoogle = async (name: string) => {
+export const signInWithGoogle = async () => {
   try {
     const res = await signInWithPopup(auth, provider);
     const credential = GoogleAuthProvider.credentialFromResult(res);
     const token = credential?.accessToken;
     const user = res.user;
 
-    await addDoc(collection(db, "users"), {
+
+    const query = await db
+      .collection("users")
+      .where("uid", "==", user.uid)
+      .get();
+
+    if (query.docs.length > 0) { 
+        return Error("Please sign in instead")
+    }
+
+    await addDoc(collection(db, "users").document, {
       phoneNumber: user.phoneNumber,
       authProvider: "Google",
       email: user.email,
       latestToken: token ?? "",
-      name,
+      name: user.displayName,
     });
 
     const result = [user, token] as const;
