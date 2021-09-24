@@ -1,19 +1,11 @@
+import { getAnalytics } from "firebase/analytics";
 import { initializeApp } from "firebase/app";
 import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  GoogleAuthProvider,
-  signInWithPopup,
-  signOut,
+    createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged,
+    signInWithEmailAndPassword, signInWithPopup, signOut
 } from "firebase/auth";
-import { getFirestore, addDoc, limit, collection, 
-  query,
-  where, 
-  getDocs } from "firebase/firestore";
+import { addDoc, collection, getDocs, getFirestore, limit, query, where } from "firebase/firestore";
 
-import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -31,19 +23,15 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Authentication
-const auth = getAuth();
+export const auth = getAuth();
 auth.useDeviceLanguage();
 
 const provider = new GoogleAuthProvider();
 
 // Firestore
-const db = getFirestore();
+export const db = getFirestore();
 
-// eslint-disable-next-line
 export const analytics = getAnalytics(app);
-
-export { auth };
-export default db;
 
 // Login
 export const signIn = async (email: string, password: string) => {
@@ -62,27 +50,24 @@ export const registerEmailAndPassword = async (
   email: string,
   password: string
 ) => {
-  try {
-    const res = await createUserWithEmailAndPassword(auth, email, password);
-    const user = res.user;
-    const q = query(collection(db, "users"), where("email", "==", email));
-    const snap = await getDocs(q);
-
-    if (snap.docs.length > 0) {
-      return Error("Please sign in instead")
-    }
-  
-    await addDoc(collection(db, "users"), {
-      name,
-      authProvider: "local",
-      email,
-    });
-
-    return user;
-  } catch (error) {
-    console.error(error);
-    return error;
-  }
+  // try {
+  //   const res = await createUserWithEmailAndPassword(auth, email, password);
+  //   const user = res.user;
+  //   const query = await where(collection(db, "users"), "email", email);
+  //   await db.collection("users").where("uid", "==", user.uid).get();
+  //   if (query.docs.length > 0) {
+  //     return Error("Please sign in instead");
+  //   }
+  //   await addDoc(collection(db, "users"), {
+  //     name,
+  //     authProvider: "local",
+  //     email,
+  //   });
+  //   return user;
+  // } catch (error) {
+  //   console.error(error);
+  //   return error;
+  // }
 };
 
 export const signInWithGoogle = async () => {
@@ -95,21 +80,24 @@ export const signInWithGoogle = async () => {
     const q = query(collection(db, "users"), where("email", "==", user.email));
     const snap = await getDocs(q);
 
-    if (snap.docs.length > 0) {
-      return Error("Please sign in instead")
-    }
-  
+    // const query = await db
+    //   .collection("users")
+    //   .where("uid", "==", user.uid)
+    //   .get();
 
-    await addDoc(collection(db, "users"), {
-      phoneNumber: user.phoneNumber,
-      authProvider: "Google",
-      email: user.email,
-      latestToken: token ?? "",
-      name: user.displayName,
-    });
+    // if (query.docs.length > 0) {
+    //   return Error("Please sign in instead");
+    // }
 
-    const result = [user, token] as const;
-    return result;
+    // await addDoc(collection(db, "users").document, {
+    //   phoneNumber: user.phoneNumber,
+    //   authProvider: "Google",
+    //   email: user.email,
+    //   latestToken: token ?? "",
+    //   name: user.displayName,
+    // });
+
+    return [user, token];
   } catch (error) {
     return null;
   }
