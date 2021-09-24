@@ -16,27 +16,27 @@ import "react-circular-progressbar/dist/styles.css";
 
 const TipCard = (props: any) => (
   <Card color="#000">
-      <Box bgcolor="primary">
-    <CardContent>
-      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-        Tip {props.num}
-      </Typography>
-      <Typography variant="h5" component="div">
-        Lorem Ipsum
-      </Typography>
-      <Typography variant="body2">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Button size="small">Learn More</Button>
-    </CardActions>
+    <Box bgcolor="primary">
+      <CardContent>
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          Tip {props.num}
+        </Typography>
+        <Typography variant="h5" component="div">
+          Lorem Ipsum
+        </Typography>
+        <Typography variant="body2">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Learn More</Button>
+      </CardActions>
     </Box>
   </Card>
 );
@@ -85,31 +85,37 @@ const Dashboard = () => (
       <Box sx={{ my: 4 }} />
       <Grid container spacing={4}>
         <Grid item xs={4}>
-            <TipCard num={1}/>
+          <TipCard num={1} />
         </Grid>
         <Grid item xs={4}>
-            <TipCard num={2}/>
+          <TipCard num={2} />
         </Grid>
         <Grid item xs={4}>
-            <TipCard num={3}/>
+          <TipCard num={3} />
         </Grid>
       </Grid>
     </Box>
     <Box sx={{ px: 30, py: 8 }}>
       <Typography variant="h4">Your impact</Typography>
-      <Box sx={{ my: 4 }}/> 
+      <Box sx={{ my: 4 }} />
       <Grid container spacing={4}>
         <Grid item xs={6}>
-            <img src="impact.jpg" width={"100%"} alt="about impact"></img>
+          <img src="impact.jpg" width={"100%"} alt="about impact"></img>
         </Grid>
         <Grid item xs={6}>
-            <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-            </Typography>
-      <Box sx={{ my: 4 }}/> 
-            <Button color="primary" variant="contained">
-                Tell me more 
-            </Button>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia
+          </Typography>
+          <Box sx={{ my: 4 }} />
+          <Button color="primary" variant="contained">
+            Tell me more
+          </Button>
         </Grid>
       </Grid>
     </Box>
