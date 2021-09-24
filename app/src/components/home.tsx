@@ -3,6 +3,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+// eslint-disable-next-line
 import Stack from "@mui/material/Stack";
 
 const Home = () => {
@@ -17,7 +18,7 @@ const Home = () => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
       </Typography>
       <Box sx={{my: 4}}/>
-      <Button variant="contained" color="primary">
+      <Button variant="contained" color="primary" sx={{color: "white"}}>
         Register my Usage
       </Button>
       {/* <img src="cover.jpg" alt="the cover"></img>
