@@ -11,20 +11,20 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 
-import { CircularProgressbar } from "react-circular-progressbar";
+import { CircularProgressbar, buildStyles, CircularProgressbarWithChildren } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
 const TipCard = (props: any) => (
-  <Card color="#000">
-    <Box bgcolor="primary">
+  <Card color="#1457BC">
+    <Box bgcolor="#1457BC">
       <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+        <Typography sx={{ fontSize: 30, pt: 3}} color="white" textAlign="center" gutterBottom>
           Tip {props.num}
         </Typography>
-        <Typography variant="h5" component="div">
+        <Typography color="white" variant="h5" textAlign="center" component="div">
           Lorem Ipsum
         </Typography>
-        <Typography variant="body2">
+        <Typography sx={{ fontSize: 14, pb: 1, mx: 1}} color="white" variant="body2" textAlign="center" >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -34,9 +34,6 @@ const TipCard = (props: any) => (
           culpa qui officia deserunt mollit anim id est laborum.
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
     </Box>
   </Card>
 );
@@ -55,27 +52,48 @@ const Dashboard = () => (
       <Typography variant="h5" textAlign="center">
         <strong>You are so close to unlocking your next challenge 🥇</strong>
       </Typography>
-      <Box sx={{ my: 2 }} />
-      <LinearProgress variant="determinate" value={80} />
+      <Box sx={{ my: 5, }} />
+      <LinearProgress sx={{height: 30, borderRadius: 20}} variant="determinate" value={80} />
     </Box>
     <Box sx={{ my: 20 }} />
-    <Box sx={{ px: 30, py: 8, bgcolor: "primary.light" }}>
+    <Box sx={{ px: 30, py: 8, bgcolor: "white" }}>
       <Typography variant="h4">Your Usage Summary</Typography>
       <Box sx={{ my: 8 }} />
       <Grid container spacing={16}>
         <Grid item xs={4}>
-          <Box sx={{ textAlign: "center" }}>
-            <CircularProgressbar value={60} text={`12L`} />
+          <Box sx={{ borderRadius: 20}}>
+            <CircularProgressbar strokeWidth={10} circleRatio={0.7} styles={buildStyles({
+              rotation: 0.65,
+              pathColor: "0165DA",
+              trailColor: "323232",
+              textColor: "black",
+              textSize: 14
+            })}
+            value={60} text={`12 Liters`} />
           </Box>
         </Grid>
         <Grid item xs={4}>
           <Box sx={{ textAlign: "center" }}>
-            <CircularProgressbar value={80} text={`$240`} />
+            <CircularProgressbar strokeWidth={10} circleRatio={0.7} styles={buildStyles({
+              rotation: 0.65,
+              strokeLinecap: "22860B",
+              pathColor: "22860B",
+              trailColor: "323232",
+              textColor: "black",
+              textSize: 14
+            })} value={80} text={`$240`} />
           </Box>
         </Grid>
         <Grid item xs={4}>
           <Box sx={{ textAlign: "center" }}>
-            <CircularProgressbar value={20} text={`680kWh`} />
+            <CircularProgressbar strokeWidth={10} circleRatio={0.7} styles={buildStyles({
+              rotation: 0.65,
+              strokeLinecap: "22860B",
+              pathColor: "E4B50B",
+              trailColor: "323232",
+              textColor: "black",
+              textSize: 14
+            })} value={40} text={`680kWh`}/>
           </Box>
         </Grid>
       </Grid>
@@ -88,18 +106,18 @@ const Dashboard = () => (
           <TipCard num={1} />
         </Grid>
         <Grid item xs={4}>
-          <TipCard num={2} />
+          <TipCard  num={2} />
         </Grid>
         <Grid item xs={4}>
           <TipCard num={3} />
         </Grid>
       </Grid>
     </Box>
-    <Box sx={{ px: 30, py: 8 }}>
+    <Box sx={{ borderRadius: 20, px: 30, py: 8 }}>
       <Typography variant="h4">Your impact</Typography>
       <Box sx={{ my: 4 }} />
-      <Grid container spacing={4}>
-        <Grid item xs={6}>
+      <Grid sx={{ borderRadius:30 }} container spacing={4}>
+        <Grid sx={{ borderRadius:30 }} xs={6}>
           <img src="impact.jpg" width={"100%"} alt="about impact"></img>
         </Grid>
         <Grid item xs={6}>
@@ -113,7 +131,7 @@ const Dashboard = () => (
             culpa qui officia
           </Typography>
           <Box sx={{ my: 4 }} />
-          <Button color="primary" variant="contained">
+          <Button sx={{ borderRadius:30 }} color="primary" variant="contained">
             Tell me more
           </Button>
         </Grid>
