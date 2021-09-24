@@ -1,60 +1,63 @@
-// import React from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-
 import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  // Link
 } from "react-router-dom";
+
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+// import IconButton from "@mui/material/IconButton";
+// import MenuIcon from "@mui/icons-material/Menu";
 
 import Home from "./components/home";
 import Dashboard from "./components/dashboard";
 import Leaderboard from "./components/leaderboard";
 import Profile from "./components/profile";
 
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBKS-7ecWupP7XqeSDvrC7Vn6lM-BtPMmg",
-  authDomain: "decode2021-6ea10.firebaseapp.com",
-  projectId: "decode2021-6ea10",
-  storageBucket: "decode2021-6ea10.appspot.com",
-  messagingSenderId: "43286852568",
-  appId: "1:43286852568:web:10e944cba926e1adf6f8ad",
-  measurementId: "G-ZN2DZF59KQ"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
 // eslint-disable-next-line
-const analytics = getAnalytics(app);
+import { app, analytics } from "./firebase";
 
 const App = () => {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/dashboard">Dashboard</Link>
-            </li>
-            <li>
-              <Link to="/leaderboard">Leaderboard</Link>
-            </li>
-            <li>
-              <Link to="/profile">Profile</Link>
-            </li>
-          </ul>
-        </nav>
+        <Box sx={{ flexGrow: 1 }}>
+          <AppBar position="static">
+            <Toolbar>
+              {/* <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                sx={{ mr: 2 }}
+              >
+                <MenuIcon />
+              </IconButton> */}
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                <Switch>
+                  <Route path="/dashboard">Dashboard</Route>
+                  <Route path="/leaderboard">Leaderboard</Route>
+                  <Route path="/profile">Profile</Route>
+                  <Route path="/">Home</Route>
+                </Switch>
+              </Typography>
+              <Button color="inherit" href="/dashboard">
+                Dashboard
+              </Button>
+              <Button color="inherit" href="/Leaderboard">
+                Leaderboard
+              </Button>
+              <Button color="inherit" href="/Profile">
+                Profile
+              </Button>
+            </Toolbar>
+          </AppBar>
+        </Box>
 
         <Switch>
           <Route path="/dashboard">
@@ -73,6 +76,6 @@ const App = () => {
       </div>
     </Router>
   );
-}
+};
 
 export default App;
