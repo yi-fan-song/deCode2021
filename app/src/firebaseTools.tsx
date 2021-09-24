@@ -8,7 +8,7 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import { getFirestore, addDoc, limit, collection, doc, 
+import { getFirestore, addDoc, limit, collection, doucment, 
   query,
   where, 
   getDocs } from "firebase/firestore";
@@ -100,7 +100,7 @@ export const signInWithGoogle = async () => {
     }
   
 
-    await addDoc(collection(db, "users").document, {
+    await addDoc(collection(db, "users"), {
       phoneNumber: user.phoneNumber,
       authProvider: "Google",
       email: user.email,
